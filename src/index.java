@@ -29,17 +29,33 @@ public class index extends HttpServlet {
 		out.println("<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.01 Transitional//EN\">");
 		out.println("<HTML>");
 		out.println("  <BODY>");
-		out.println(" <h1> Taco Car </h1>");
-		out.print(" <a style = \"float: right; color: #000\"href = \"/TacoCar\">Taco History</a><br>");
+		out.println(" <h1> Taco Assembly </h1>");
+		out.print(" <a style = \"float: right; color: #000\"href = \"/TacoCar\">Shopping Car</a><br>");
 		out.println(" <form action=\"/newTaco\">");
 		for(ApiObj o: apiCrawler.getBaseLayer()) {
-			out.printf(" <input type=\"checkbox\" name = \"baslayer\" value=\"%s\"> %s<br>", o.toString(), o.toString());
+			out.printf(" <input type=\"checkbox\" name = \"baselayer\" value=\"%s\"> %s<br>", o.toString(), o.toString());
 		}
+		out.println("<br>");
+		for(ApiObj o: apiCrawler.getMixin()) {
+			out.printf(" <input type=\"checkbox\" name = \"mixin\" value=\"%s\"> %s<br>", o.toString(), o.toString());
+		}
+		out.println("<br>");
+		for(ApiObj o: apiCrawler.getSeasoning()) {
+			out.printf(" <input type=\"checkbox\" name = \"seasoning\" value=\"%s\"> %s<br>", o.toString(), o.toString());
+		}
+		out.println("<br>");
+		for(ApiObj o: apiCrawler.getCondiment()) {
+			out.printf(" <input type=\"checkbox\" name = \"condiment\" value=\"%s\"> %s<br>", o.toString(), o.toString());
+		}
+		out.println("<br>");
+		for(ApiObj o: apiCrawler.getShell()) {
+			out.printf(" <input type=\"checkbox\" name = \"shell\" value=\"%s\"> %s<br>", o.toString(), o.toString());
+		}
+		
 		out.println(" <input type=\"submit\" value=\"Submit\">");
 		out.println(" <input type=\"reset\"");
 		out.println("</form>");
 		out.println("<form method = \"post\" action = \"/TacoCar\">");
-//		out.println(" <input type=\"submit\" value=\"Submit choice\"  >");
 		out.println("  </form>");
 		out.println("  </BODY>");
 		out.println("</HTML>");

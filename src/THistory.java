@@ -30,7 +30,7 @@ public class THistory extends HttpServlet {
 		out.println("<form method = \"post\" action = \"/search history\">");
 		out.println(" <input type=\"submit\" value=\"Clear\"  >");
 		out.println("  </form>");
-		out.printf("<a href=\"/?query=%s&ifAdd=false\">Click here back to Home page.</a>",request.getParameter("query"));
+		out.println("<a href=/>Click here back to Home page.</a>");
 		out.println("  </BODY>");
 		out.println("</HTML>");
 		out.flush();
@@ -38,7 +38,7 @@ public class THistory extends HttpServlet {
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException {
-		ChooseServer.choose = new TacoResult();
+//		ChooseServer.choose = new TacoResult();
 		doGet(request,response);
 	}
 
