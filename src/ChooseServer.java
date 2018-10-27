@@ -27,7 +27,8 @@ public class ChooseServer {
 		Server server = new Server(port);
 		ServletHandler handler = new ServletHandler();
 		
-		handler.addServletWithMapping(new ServletHolder(new THistory()), "/Taco Car");
+		handler.addServletWithMapping(new ServletHolder(new index(apiCrawler)), "/");
+		handler.addServletWithMapping(new ServletHolder(new THistory()), "/TacoCar");
 		
 		
 		server.setHandler(handler);

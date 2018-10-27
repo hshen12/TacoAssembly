@@ -7,9 +7,24 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 @SuppressWarnings("serial")
-public class THistory extends HttpServlet {
+public class index extends HttpServlet {
 
+	private APICrawler apiCrawler;
+
+	public index(APICrawler apiCrawler) {
+		this.apiCrawler = apiCrawler;
+	}
+
+	@Override
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException {
+		response.sendRedirect("/");
+	}
+
+	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException {
+
+		//		String newUrl = request.getParameter("newUrlSearch");
+
 
 		response.setContentType("text/html");
 		PrintWriter out = response.getWriter();
@@ -18,14 +33,11 @@ public class THistory extends HttpServlet {
 		out.println("  <HEAD><TITLE>Search engine</TITLE></HEAD>");
 		out.println("  <BODY>");
 		out.print(" <p> Taco Car </p>");
-		if(!ChooseServer.choose.isEmpty()) {
-			for(Taco o: ChooseServer.choose.getResult()) {
-				out.printf(" <p>%s<br/>"
-						+ "Date: %s",o.toString());
-			}
-		} else {
-			out.println("empty car");
+		for(ApiObj o: apiCrawler.getBaseLayer()) {
+			out.printf(" <p>%s<br/>"
+					+ "Date: %s",o.toString());
 		}
+
 		out.print(" </p>");
 		out.println("<form method = \"post\" action = \"/search history\">");
 		out.println(" <input type=\"submit\" value=\"Clear\"  >");
@@ -35,10 +47,6 @@ public class THistory extends HttpServlet {
 		out.println("</HTML>");
 		out.flush();
 		out.close();
-	}
-
-	protected void doPost(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException {
-		doGet(request,response);
 	}
 
 
