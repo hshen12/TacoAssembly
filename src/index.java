@@ -23,8 +23,6 @@ public class index extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException {
 
-		//		String newUrl = request.getParameter("newUrlSearch");
-
 
 		response.setContentType("text/html");
 		PrintWriter out = response.getWriter();
@@ -34,8 +32,7 @@ public class index extends HttpServlet {
 		out.println("  <BODY>");
 		out.print(" <p> Taco Car </p>");
 		for(ApiObj o: apiCrawler.getBaseLayer()) {
-			out.printf(" <p>%s<br/>"
-					+ "Date: %s",o.toString());
+			out.printf(" <p>%s<br/>",o.toString());
 		}
 
 		out.print(" </p>");
