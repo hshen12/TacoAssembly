@@ -9,19 +9,23 @@ import javax.servlet.http.HttpServletResponse;
 @SuppressWarnings("serial")
 public class ShoppingCar extends HttpServlet {
 
+	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException {
 
 		response.setContentType("text/html");
 		PrintWriter out = response.getWriter();
 		out.println("<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.01 Transitional//EN\">");
 		out.println("<HTML>");
-		out.println("  <HEAD><TITLE>Search engine</TITLE></HEAD>");
+		out.println("  <HEAD><TITLE>Taco Shopping Car</TITLE></HEAD>");
 		out.println("  <BODY>");
-		out.print(" <p> Taco Shopping Car </p>");
+		out.print(" <h1> Taco Shopping Car </h1>");
 		if(!ChooseServer.choose.isEmpty()) {
+			int index = 1;
 			for(Taco o: ChooseServer.choose.getResult()) {
-				out.printf(" <p>%s<br/>"
-						+ "Date: %s<br/>",o.toString(), o.getData());
+				out.printf(" <p><h2>Taco %d</h2><br/>"
+						+ "%s<br/>"
+						+ "Date: %s<br/>",index, o.webAppToString(), o.getData());
+				index++;
 			}
 		} else {
 			out.println("empty car");
@@ -37,6 +41,7 @@ public class ShoppingCar extends HttpServlet {
 		out.close();
 	}
 
+	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException {
 		ChooseServer.choose.clear();
 		doGet(request,response);
