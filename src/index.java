@@ -55,7 +55,7 @@ public class index extends HttpServlet {
 		out.println(" <input type=\"submit\" value=\"Submit\">");
 		out.println(" <input type=\"reset\"");
 		out.println("</form>");
-		out.println("<form method = \"post\" action = \"/TacoCar\">");
+		out.println("<form method = \"post\" action = \"/addNewTaco\">");
 		out.println("  </form>");
 		out.println("  </BODY>");
 		out.println("</HTML>");

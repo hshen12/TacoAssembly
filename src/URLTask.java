@@ -6,11 +6,21 @@ import java.util.ArrayList;
 
 import javax.net.ssl.HttpsURLConnection;
 
+/**
+ * Define how to crawl the web api
+ * @author Hao Shen
+ *
+ */
 public class URLTask implements Runnable {
 
 	private URL seed;
 	private ArrayList<ApiObj> arrayList;
 
+	/**
+	 * Takes in a url seed and a array list to store the result
+	 * @param seed
+	 * @param hashmap
+	 */
 	public URLTask(URL seed, ArrayList<ApiObj> hashmap) {
 		this.seed = seed;
 		this.arrayList = hashmap;
