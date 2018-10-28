@@ -9,12 +9,18 @@ import javax.servlet.http.HttpServletResponse;
 public class NewTaco extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException {
-		System.out.println("here");
-		response.sendRedirect("/"+request.getParameter("baselayer"));
+		System.out.println("here1");
+		String[] baselayerArr = request.getParameterValues("baselayer");
+		String[] mixinArr = request.getParameterValues("mixin");
+		String[] seasoningArr = request.getParameterValues("seasoning");
+		String[] condimentArr = request.getParameterValues("condiment");
+		String[] shellArr = request.getParameterValues("shell");
+		ChooseServer.choose.addMutipleIngredient(baselayerArr, mixinArr, seasoningArr, condimentArr, shellArr);
+		response.sendRedirect("/addNewTaco");
 	}
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException {
-
+		System.out.println("here2");
 		String[] baselayerArr = request.getParameterValues("baselayer");
 		String[] mixinArr = request.getParameterValues("mixin");
 		String[] seasoningArr = request.getParameterValues("seasoning");
