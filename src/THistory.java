@@ -38,7 +38,7 @@ public class THistory extends HttpServlet {
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException {
-//		ChooseServer.choose = new TacoResult();
+		ChooseServer.choose = new TacoResult();
 		doGet(request,response);
 	}
 
