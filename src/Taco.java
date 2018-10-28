@@ -22,8 +22,38 @@ public class Taco {
 	
 	public String toString() {
 		
-		return String.join("and", baseLayer) + " " + String.join("and", mixin) + " " + String.join("and", seasoning) + " " 
-				+ String.join("and", condiment) + " " + String.join("and", shells);
+		StringBuilder sb = new StringBuilder();
+		sb.append("BaseLayer:");
+		sb.append(System.lineSeparator());
+		sb.append("\t");
+		sb.append(String.join(System.lineSeparator()+"\t", baseLayer));
+		sb.append(System.lineSeparator());
+		
+		sb.append("Mixin:");
+		sb.append(System.lineSeparator());
+		sb.append("\t");
+		sb.append(String.join(System.lineSeparator()+"\t", mixin));
+		sb.append(System.lineSeparator());
+		
+		sb.append("Seasoning:");
+		sb.append(System.lineSeparator());
+		sb.append("\t");
+		sb.append(String.join(System.lineSeparator()+"\t", seasoning));
+		sb.append(System.lineSeparator());
+		
+		sb.append("Condiment:");
+		sb.append(System.lineSeparator());
+		sb.append("\t");
+		sb.append(String.join(System.lineSeparator()+"\t", condiment));
+		sb.append(System.lineSeparator());
+		
+		sb.append("Shells:");
+		sb.append(System.lineSeparator());
+		sb.append("\t");
+		sb.append(String.join(System.lineSeparator()+"\t", shells));
+		sb.append(System.lineSeparator());
+		
+		return sb.toString();
 	}
 	
 	public void addSingle(String baseLayer, String mixin, String seasoning, String condiment, String shells) {
