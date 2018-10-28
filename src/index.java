@@ -52,10 +52,10 @@ public class index extends HttpServlet {
 			out.printf(" <input type=\"checkbox\" name = \"shell\" value=\"%s\"> %s<br>", o.toString(), o.toString());
 		}
 		
-		out.println(" <input type=\"submit\" value=\"Submit\">");
+		out.println(" <input type=\"submit\" value=\"Submit\" action=\"post\">");
 		out.println(" <input type=\"reset\"");
 		out.println("</form>");
-		out.println("<form method = \"post\" action = \"/addNewTaco\">");
+		out.println("<form method = \"post\" action = \"/newTaco\">");
 		out.println("  </form>");
 		out.println("  </BODY>");
 		out.println("</HTML>");

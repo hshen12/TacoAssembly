@@ -40,7 +40,7 @@ public class ChooseServer {
 		
 		handler.addServletWithMapping(new ServletHolder(new index(apiCrawler)), "/");
 		handler.addServletWithMapping(new ServletHolder(new THistory()), "/TacoCar");
-		handler.addServletWithMapping(new ServletHolder(new NewTaco()), "/addNewTaco");
+		handler.addServletWithMapping(new ServletHolder(new NewTaco()), "/newTaco");
 		
 		server.setHandler(handler);
 		try {

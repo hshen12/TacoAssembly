@@ -16,7 +16,7 @@ public class NewTaco extends HttpServlet {
 		String[] condimentArr = request.getParameterValues("condiment");
 		String[] shellArr = request.getParameterValues("shell");
 		ChooseServer.choose.addMutipleIngredient(baselayerArr, mixinArr, seasoningArr, condimentArr, shellArr);
-		response.sendRedirect("/addNewTaco");
+//		response.sendRedirect("/NewTaco");
 	}
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException {
@@ -27,7 +27,7 @@ public class NewTaco extends HttpServlet {
 		String[] condimentArr = request.getParameterValues("condiment");
 		String[] shellArr = request.getParameterValues("shell");
 		ChooseServer.choose.addMutipleIngredient(baselayerArr, mixinArr, seasoningArr, condimentArr, shellArr);
-		response.sendRedirect("/addNewTaco");
+		response.sendRedirect("/");
 	}
 	
 	

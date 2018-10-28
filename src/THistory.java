@@ -20,14 +20,13 @@ public class THistory extends HttpServlet {
 		out.print(" <p> Taco Car </p>");
 		if(!ChooseServer.choose.isEmpty()) {
 			for(Taco o: ChooseServer.choose.getResult()) {
-				out.printf(" <p>%s<br/>"
-						+ "Date: %s",o.toString());
+				out.printf(" <p>%s<br/>", o.toString());
 			}
 		} else {
 			out.println("empty car");
 		}
 		out.print(" </p>");
-		out.println("<form method = \"post\" action = \"/search history\">");
+//		out.println("<form method = \"post\" action = \"/search history\">");
 		out.println(" <input type=\"submit\" value=\"Clear\"  >");
 		out.println("  </form>");
 		out.println("<a href=/>Click here back to Home page.</a>");
