@@ -7,7 +7,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 @SuppressWarnings("serial")
-public class THistory extends HttpServlet {
+public class ShoppingCar extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException {
 
@@ -17,19 +17,20 @@ public class THistory extends HttpServlet {
 		out.println("<HTML>");
 		out.println("  <HEAD><TITLE>Search engine</TITLE></HEAD>");
 		out.println("  <BODY>");
-		out.print(" <p> Taco Car </p>");
+		out.print(" <p> Taco Shopping Car </p>");
 		if(!ChooseServer.choose.isEmpty()) {
 			for(Taco o: ChooseServer.choose.getResult()) {
-				out.printf(" <p>%s<br/>", o.toString());
+				out.printf(" <p>%s<br/>"
+						+ "Date: %s<br/>",o.toString(), o.getData());
 			}
 		} else {
 			out.println("empty car");
 		}
 		out.print(" </p>");
-//		out.println("<form method = \"post\" action = \"/search history\">");
+		out.println("<form method=\"post\" action=\"/TacoCar\">");
 		out.println(" <input type=\"submit\" value=\"Clear\"  >");
 		out.println("  </form>");
-		out.println("<a href=/>Click here back to Home page.</a>");
+		out.println("<br> <a href=/>Click here back to Home page.</a> <br/>");
 		out.println("  </BODY>");
 		out.println("</HTML>");
 		out.flush();
@@ -37,7 +38,7 @@ public class THistory extends HttpServlet {
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException {
-		ChooseServer.choose = new TacoResult();
+		ChooseServer.choose.clear();
 		doGet(request,response);
 	}
 

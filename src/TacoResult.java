@@ -75,6 +75,15 @@ public class TacoResult {
 	}
 	
 	/**
+	 * Clear all taco in the data structure
+	 */
+	public void clear() {
+		while(!isEmpty()) {
+			result.clear();
+		}
+	}
+	
+	/**
 	 * Return true if the data structure is empty, false other wise
 	 * @return true if the data structure is empty, false other wise
 	 */

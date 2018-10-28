@@ -1,4 +1,7 @@
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 
 public class Taco {
 	
@@ -7,6 +10,7 @@ public class Taco {
 	private ArrayList<String> seasoning;
 	private ArrayList<String> condiment;
 	private ArrayList<String> shells;
+	private String date;
 	
 	public Taco() {
 		this.baseLayer = new ArrayList<String>();
@@ -18,8 +22,8 @@ public class Taco {
 	
 	public String toString() {
 		
-		return String.join("and", baseLayer) + " " + String.join(" ", mixin) + " " + String.join(" ", seasoning) + " " 
-				+ String.join(" ", condiment) + " " + String.join(" ", shells);
+		return String.join("and", baseLayer) + " " + String.join("and", mixin) + " " + String.join("and", seasoning) + " " 
+				+ String.join("and", condiment) + " " + String.join("and", shells);
 	}
 	
 	public void addSingle(String baseLayer, String mixin, String seasoning, String condiment, String shells) {
@@ -28,6 +32,23 @@ public class Taco {
 		this.seasoning.add(seasoning);
 		this.condiment.add(condiment);
 		this.shells.add(shells);
+		this.date = getDate();
+	}
+	
+	/**
+	 * Returns the date and time in a long format. For example: "12:00 am on
+	 * Saturday, January 01 2000".
+	 *
+	 * @return current date and time
+	 */
+	private String getDate() {
+		String format = "hh:mm a 'on' MMMM dd yyyy";
+		DateFormat formatter = new SimpleDateFormat(format);
+		return formatter.format(new Date());
+	}
+	
+	public String getData() {
+		return date;
 	}
 	
 	private void addAllBaseLayer(ArrayList<String> otherBaseLayer) {
@@ -66,6 +87,7 @@ public class Taco {
 		addAllSeasoning(seasoning);
 		addAllCondiment(condiment);
 		addAllShells(shells);
+		this.date = getDate();
 	}
 	
 }
